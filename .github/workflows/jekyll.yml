@@ -1,0 +1,833 @@
+# Th<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sintesi Completa Cineforum: L'Anima del Racconto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0D1B2A; /* Dark background for screen */
+            color: #E0E1DD; /* Light text for screen */
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            background-color: #1B263B; /* Darker card background for screen */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            padding: 40px;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: #F39C12; /* Accent color for headings */
+            margin-bottom: 1rem;
+        }
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.2rem; margin-top: 2rem; }
+        h3 { font-size: 1.8rem; margin-top: 1.5rem; }
+        h4 { font-size: 1.4rem; margin-top: 1.2rem; }
+        p { margin-bottom: 1rem; }
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        li { margin-bottom: 0.5rem; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        th, td {
+            border: 1px solid #415A77; /* Border for tables */
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #415A77;
+            color: #E0E1DD;
+        }
+        blockquote {
+            border-left: 4px solid #F39C12;
+            padding-left: 15px;
+            margin: 1.5rem 0;
+            color: #BDC3C7;
+            font-style: italic;
+        }
+        a {
+            color: #A9D6E5; /* Link color */
+            text-decoration: underline;
+        }
+        .interactive-feature {
+            background-color: #2C3E50;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        .interactive-feature button {
+            background-color: #F39C12;
+            color: #0D1B2A;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 10px 5px;
+        }
+        .interactive-feature button:hover {
+            background-color: #E68A00;
+        }
+        .interactive-feature input[type="text"] {
+            background-color: #1B263B;
+            border: 1px solid #415A77;
+            border-radius: 5px;
+            padding: 10px;
+            color: #E0E1DD;
+            width: 80%;
+            max-width: 400px;
+            margin-bottom: 15px;
+        }
+        .loading-spinner {
+            border: 4px solid rgba(243, 156, 18, 0.3);
+            border-top: 4px solid #F39C12;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+            display: none; /* Hidden by default */
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .api-result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #1B263B;
+            border-radius: 6px;
+            text-align: left;
+            color: #E0E1DD;
+            white-space: pre-wrap; /* Preserve whitespace and line breaks */
+            display: none; /* Hidden by default */
+        }
+        .input-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        .input-group input {
+            flex-grow: 1;
+        }
+        .tts-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .tts-controls button {
+            background-color: #2ECC71;
+        }
+        .tts-controls button:hover {
+            background-color: #27AE60;
+        }
+
+        /* Print-specific styles */
+        @media print {
+            body {
+                background-color: white;
+                color: black;
+                margin: 0;
+                padding: 0;
+                font-size: 11pt; /* Adjust base font size for print */
+            }
+            .container {
+                max-width: none;
+                width: 100%;
+                margin: 0;
+                padding: 1.5cm; /* Standard print margins */
+                box-shadow: none;
+                border-radius: 0;
+                background-color: white;
+            }
+            h1, h2, h3, h4 {
+                color: #2c3e50; /* Darker color for print headings */
+            }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; }
+            h3 { font-size: 1.5rem; }
+            h4 { font-size: 1.2rem; }
+            table, th, td {
+                border-color: #ccc; /* Lighter border for print tables */
+                color: #333;
+            }
+            th {
+                background-color: #eee;
+            }
+            blockquote {
+                border-left-color: #999;
+                color: #555;
+            }
+            a {
+                color: #007bff; /* Standard link color for print */
+            }
+            /* Hide interactive features when printing */
+            .interactive-feature {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="container">
+        <h1>L'Anima del Racconto: Sceneggiatori, Registi e l'Eredità Classica nel Cinema</h1>
+
+        <h2>Introduzione: Il Cineforum come Viaggio tra Archetipi e Schermo</h2>
+        <p>Nonostante la sua natura tecnologicamente avanzata, il cinema affonda le sue radici più profonde nelle forme narrative antiche. L'umanità ha da sempre cercato di comprendere sé stessa e il mondo attraverso racconti che esplorano esperienze universali, conflitti e passioni. Questa ricerca di significato attraverso la narrazione è un filo conduttore che lega le più remote tradizioni orali alle complesse produzioni cinematografiche contemporanee.</p>
+        <p>Il presente cineforum si propone come un'opportunità unica per esplorare queste connessioni profonde tra il passato e il presente della narrazione. Il programma si concentrerà sui ruoli centrali dello sceneggiatore, l'architetto che plasma la struttura e la sostanza della storia, e del regista, l'artista che traduce questa visione in un'esperienza visiva e sonora tangibile e coinvolgente. Attraverso l'analisi di opere cinematografiche selezionate, si intende mettere in luce come concetti narrativi e impatti emotivi ereditati dalla tragedia greca, dal mito, dalla favola e dalla catarsi continuino a risuonare potentemente nel cinema odierno.</p>
+        <p>L'attrattiva duratura e la risonanza universale del cinema derivano proprio dal suo continuo dialogo con gli archetipi narrativi e le strutture emotive ereditate dalla narrazione classica. Questo suggerisce che le esigenze psicologiche e sociali umane di narrazione rimangono costanti, indipendentemente dal mezzo. Le forme classiche non sono semplici curiosità storiche, ma pilastri fondamentali che conferiscono al cinema la sua forza e la sua capacità di elaborazione emotiva attraverso le storie.</p>
+
+        <h2>I Pilastri della Creazione Cinematografica: Sceneggiatore e Regista</h2>
+        <p>La realizzazione di un'opera cinematografica è un processo complesso che vede la collaborazione di numerose figure professionali, tra cui spiccano lo sceneggiatore e il regista. Sebbene i loro ruoli siano distinti, la loro interdipendenza è fondamentale per la buona riuscita del film, specialmente nell'evocare risposte emotive profonde come la catarsi.</p>
+
+        <h3>Il Sceneggiatore: Architetto della Visione</h3>
+        <p>Lo sceneggiatore è una figura chiave nell'industria cinematografica, televisiva e teatrale, responsabile della creazione e dello sviluppo delle storie che prendono vita sullo schermo o sul palco.[1] La sua arte consiste nel padroneggiare le regole complesse della sceneggiatura, inclusa la divisione in atti, la collocazione strategica dei punti di svolta e lo sviluppo approfondito dei personaggi, il tutto finalizzato a garantire una narrazione coerente e avvincente.[2, 3] Questa fase tecnica comporta la stesura di dialoghi dettagliati, descrizioni delle scene e indicazioni specifiche per registi e attori, aderendo a precise linee guida strutturali come il paradigma in tre atti e la costruzione di archi evolutivi dei personaggi.[2, 3]</p>
+        <p>Oltre alla creazione iniziale, lo sceneggiatore deve dimostrare grande adattabilità, essendo pronto a rivedere e perfezionare il proprio testo in base ai feedback di produttori, registi o emittenti. Queste revisioni spesso tengono conto di vincoli pratici come il budget, il pubblico di riferimento e i limiti di produzione.[2] In sostanza, una sceneggiatura è il progetto scritto di un film, che descrive meticolosamente le azioni, i dialoghi e le emozioni dei personaggi. È una guida cruciale per tutti i professionisti coinvolti nella produzione.[3] È anche un documento essenziale per ottenere finanziamenti, poiché gli investitori e le case di produzione valutano spesso la fattibilità di un progetto cinematografico in base alla qualità della sceneggiatura.[3] La creazione efficace dei personaggi implica l'assegnazione di obiettivi o desideri chiari, lo sviluppo di caratteristiche e personalità distinte, la costruzione di ricchi retroscena e la meticolosa mappatura dell'arco narrativo di trasformazione di ogni personaggio lungo la storia.[3, 4] Un principio fondamentale per gli sceneggiatori è "mostrare, non raccontare", soprattutto per quanto riguarda emozioni e pensieri, mantenendo le descrizioni delle azioni concise per coinvolgere il lettore ed evitare errori da principiante.[5] È altresì cruciale che gli sceneggiatori descrivano solo ciò che può essere realisticamente rappresentato sullo schermo, evitando pensieri interni o concetti astratti non esteriorizzabili.[5] La sceneggiatura deve essere sempre chiara, comprensibile e conforme agli standard di formato e terminologia del settore.[6]</p>
+
+        <h3>Il Regista: Il Traduttore Visivo e Autore</h3>
+        <p>Il regista è la figura centrale nella produzione cinematografica, televisiva o teatrale, incaricato di guidare e coordinare l'intera squadra tecnico-artistica, inclusi autori, sceneggiatori, attori, scenografi, costumisti, operatori di ripresa e tecnici del suono e delle luci.[7] Il suo ruolo comprende la direzione degli attori, la gestione del set, la supervisione dei collaboratori e la meticolosa pianificazione ed esecuzione delle riprese e delle inquadrature.[8] Questa supervisione completa porta spesso il regista a essere considerato il vero "autore" di un film.[8]</p>
+        <p>L'arte del regista risiede nel trasformare la sceneggiatura scritta in un'esperienza tangibile ed emotivamente risonante. Ciò implica innumerevoli scelte dettagliate, dalla selezione di angolazioni di ripresa precise alla capacità di suscitare e gestire le performance emotive degli attori.[9] I registi impiegano una vasta gamma di tecniche cinematografiche per ottenere impatti visivi ed emotivi specifici. Tra queste figurano il drammatico "dolly zoom" [10, 11], l'immersivo "steadicam shot" [10, 12], il suggestivo "long take" [10, 12], l'intimo "close-up" e "extreme close-up" [11, 13], le carrellate circolari [10] e diverse altre tecniche di inquadratura e movimento.[11, 12, 13] In definitiva, il regista interpreta le parole scritte dallo sceneggiatore, traducendole in un linguaggio visivo avvincente che coinvolge il pubblico.[14]</p>
+
+        <h3>La Sinergia Creativa: Un Dialogo Essenziale</h3>
+        <p>Il rapporto tra sceneggiatore e regista è intrinsecamente collaborativo. Gli sceneggiatori devono essere pronti a integrare feedback e ad adattare il loro testo per soddisfare le esigenze di produzione, riconoscendo la natura iterativa della realizzazione di un film.[2, 3] Sebbene gli sceneggiatori forniscano "istruzioni per la regia", esiste un delicato equilibrio; un eccesso di dettagli può essere percepito dal regista come un'indebita intrusione nel suo dominio artistico.[3] Il ruolo del regista è quello di "dare vita alla sceneggiatura", trasformando la narrazione dal concetto alla realtà cinematografica.[9, 14]</p>
+        <p>Una sceneggiatura solida e ben sviluppata è considerata "l'anima del film". Senza questa base robusta, anche le scelte registiche più raffinate e le performance più potenti potrebbero perdere la loro efficacia, sottolineando la natura indispensabile della sceneggiatura nel guidare ogni fase della produzione.[9] Il successo di un film, in particolare nella capacità di evocare risposte emotive profonde come la catarsi, dipende da una sinergia delicata e talvolta tesa tra l'architettura narrativa dello sceneggiatore e l'interpretazione visiva ed emotiva del regista. Lo sceneggiatore pone le basi emotive attraverso archi dei personaggi, conflitti e punti di trama, che il regista poi amplifica e manifesta tramite tecniche cinematografiche specifiche come la fotografia, il montaggio e il sound design. Una sceneggiatura forte fornisce l'"anima", ma l'arte del regista la rende "tangibile ed emozionante".[9] Ciò implica che anche quando gli elementi classici sono presenti nella sceneggiatura, il loro impatto dipende fortemente dall'esecuzione registica, poiché le scelte del regista determinano come il pubblico vive il nucleo emotivo della storia.</p>
+        <p>La tensione intrinseca tra le istruzioni dettagliate dello sceneggiatore e la libertà artistica del regista [3] evidenzia un dibattito fondamentale e continuo nella teoria cinematografica: chi è il vero "autore" di un film? Sebbene il regista sia "spesso considerato il vero autore" [8], il lavoro fondamentale dello sceneggiatore [3] è indispensabile. Questa dinamica è particolarmente rilevante nell'adattamento di miti o tragedie classiche, poiché implica sia la fedeltà all'integrità narrativa e tematica del materiale originale (spesso dominio dello sceneggiatore) sia una reinterpretazione contemporanea attraverso scelte visive e stilistiche (la visione del regista). Questa costante negoziazione plasma il prodotto cinematografico finale e la sua capacità di risuonare con il pubblico moderno, pur onorando le radici antiche.</p>
+
+        <h2>L'Eterno Ritorno: Tragedia Greca e Mito nel Cinema Contemporaneo</h2>
+        <p>La tragedia greca e il mito costituiscono fonti narrative e tematiche fondamentali per il cinema contemporaneo, dimostrando una rilevanza duratura attraverso il lavoro collaborativo di sceneggiatori e registi.</p>
+
+        <h3>La Tragedia Greca: Struttura, Conflitto e Destino</h3>
+        <p>Le origini della tragedia greca (τραγῳδία, "canto del capro", forse in riferimento a un rito sacrificale o a voci belanti) sono oggetto di dibattito, ma sono radicate in antichi riti sacrificali, evolvendosi in un rito collettivo della *polis* piuttosto che in un semplice spettacolo.[15] Lo spazio teatrale stesso era consacrato, spesso con un altare a Dioniso.[15] La struttura tipica di una tragedia greca comprende un prologo (che introduce il dramma), una parodo (il canto d'ingresso del coro), tre o più episodi (l'azione principale), stasimi (canti corali tra gli episodi) e un esodo (la scena conclusiva).[15, 16] Forme di dialogo chiave come la *rhèsis* (monologhi estesi, spesso per messaggeri che narrano eventi fuori scena o per agoni dialettici), la *stichomythìa* (scambi rapidi, su una singola riga, per aumentare la tensione) e la *monodìa* (canti lirici degli attori) erano cruciali per lo sviluppo della trama e dei personaggi.[16] Il ruolo del coro, inizialmente centrale, divenne meno integrato con la trama nelle tragedie euripidee successive.[16] Il *deus ex machina*, un personaggio divino calato sulla scena tramite una macchina teatrale, era spesso impiegato negli esodi di Euripide per risolvere situazioni drammatiche apparentemente impossibili.[16] Aristotele, nella sua opera fondamentale *Poetica*, definì celebremente la tragedia come la "mimesi di un'azione seria e compiuta in se stessa" che, attraverso la suscitazione di pietà e terrore, realizza la "purificazione" o "purgazione" (catarsi) di queste emozioni nel pubblico.[17, 18] Questo processo era visto come un modo per preparare gli spettatori a far fronte a future avversità.[17]</p>
+
+        <h3>Il Mito: Archetipi Universali e Rielaborazioni Cinematografiche</h3>
+        <p>Le narrazioni mitologiche, analogamente ai miti classici, possiedono una capacità unica di veicolare impulsi, passioni e problemi universali, rendendoli profondamente interiorizzabili da chiunque, indipendentemente dal contesto culturale.[19] Il cinema riutilizza e reinterpreta frequentemente i miti. Questo può avvenire in modo esplicito, come nelle dirette trasposizioni quali *Medea* di Pier Paolo Pasolini [20, 21] o il kolossal hollywoodiano *Troy*.[20] Può anche essere implicito, dove il mito fornisce un sottotesto tematico o strutturale, come il mito di Edipo in *Funeral Parade of Roses* di Toshio Matsumoto.[19]</p>
+        <p>L'influenza del mito si estende alla stessa arte della sceneggiatura. "The Writer's Journey: Mythic Structure for Storytellers and Screenwriters" (1992) di Chris Vogler, che attinge ampiamente dagli studi di Joseph Campbell sui modelli mitologici universali, è diventato un testo fondamentale per gli sceneggiatori, tracciando direttamente strutture mitiche come il "viaggio dell'eroe" nel cinema americano contemporaneo.[22] La continua risemantizzazione e attualizzazione dei miti sono evidenti nei remake (ad esempio, *Old Boy* di Spike Lee, vagamente ispirato al mito di Edipo [19, 21]), dimostrando la loro adattabilità a diversi contesti culturali e storici. Oltre agli adattamenti diretti, molti film traggono ispirazione dai miti greci: *Scontro tra Titani* (Perseo), *Immortals* (Teseo), *Gli Argonauti* (Giasone).[20]</p>
+        <p>Un filone ricco di esplorazione cinematografica proviene da film che si basano liberamente sulla mitologia greco-romana, spesso ricontestualizzandola per ambientazioni moderne. Esempi includono *O Brother, Where Art Thou?* dei fratelli Coen (un adattamento libero dell'*Odissea* di Omero [21, 23, 24]), *Il sacrificio del cervo sacro* di Yorgos Lanthimos (ispirato all'*Ifigenia in Aulide* di Euripide [25, 26]), e film come *La donna esplosiva* (Pigmalione), *Chi-Raq* (Aristofane), *Orfeo*, *Moulin Rouge!* (Orfeo) e *Birdman* (Ornithogonia).[21] Il lavoro del regista greco Theo Angelopoulos si distingue per il suo profondo impegno con la mitologia greca, spesso fondendola con la storia e la politica contemporanea. I suoi film come *I Viaggiatori* (che esplora il mito degli Atridi con personaggi che ricordano Agamennone, Clitemnestra, Elettra e Oreste), *Viaggio a Citera* (un moderno ritorno di Ulisse) e *La Prateria Piangente* (l'Odissea dei rifugiati greci) esemplificano questo approccio.[21, 27] Il regista italiano Mario Martone, a partire dalla metà degli anni '80, ha intrapreso un percorso cinematografico per scavare nelle radici del mito greco nel tentativo di comprendere il "presente tragico".[28]</p>
+        <p>L'uso esplicito di strutture classiche come il paradigma in tre atti [2, 3, 29] e il "viaggio dell'eroe" [22] da parte degli sceneggiatori dimostra una discendenza diretta dalla teoria narrativa greca (la Poetica di Aristotele [17, 18]) alla moderna narrazione cinematografica. Ciò suggerisce che queste forme antiche non sono solo ispirazioni tematiche, ma servono come progetti pratici per costruire trame avvincenti e archi dei personaggi, influenzando l'arte stessa della sceneggiatura. La continuità di questi elementi strutturali attraverso i millenni evidenzia la loro efficacia fondamentale nel coinvolgere il pubblico e nell'organizzare narrazioni complesse.</p>
+        <p>La ricorrente adattamento e reinterpretazione di tragedie e miti greci da parte di diversi registi (Pasolini, Angelopoulos, Lanthimos, fratelli Coen, Martone) attraverso epoche e generi differenti [19, 20, 21, 22, 25, 27, 28] indica che queste narrazioni offrono un linguaggio simbolico flessibile e ricco per esplorare dilemmi umani senza tempo, complessi psicologici (ad esempio, Edipo [19, 21]) e commenti socio-politici (ad esempio, *Antigone* riutilizzata per il terrorismo [19]; Angelopoulos che fonde mito con storia/politica [27]) . Questo va oltre la semplice riproposizione, dimostrando la capacità del mito di continua "attualizzazione e risemantizzazione" [19], provando il loro duraturo potere narrativo e la loro adattabilità per affrontare ansie contemporanee e condizioni umane universali.</p>
+
+        <h4>Tabella 1: Film che Rievocano Tragedia Greca e Mito</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Titolo Film</th>
+                    <th>Regista</th>
+                    <th>Anno</th>
+                    <th>Connessione Principale a Mito/Tragedia</th>
+                    <th>Elemento Narrativo/Tematico Chiave</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>*Medea*</td><td>Pier Paolo Pasolini</td><td>1969</td><td>Adattamento diretto della tragedia greca</td><td>Il dramma della vendetta e della passione distruttiva.</td></tr>
+                <tr><td>*Troy*</td><td>Wolfgang Petersen</td><td>2004</td><td>Adattamento del mito di Achille e della guerra di Troia</td><td>L'ira di Achille, il destino eroico e la caduta di una civiltà.</td></tr>
+                <tr><td>*O Brother, Where Art Thou?*</td><td>Fratelli Coen</td><td>2000</td><td>Rielaborazione dell'*Odissea* di Omero</td><td>Il viaggio di ritorno, la ricerca di redenzione, figure archetipiche (Ciclope, Sirene).</td></tr>
+                <tr><td>*Il sacrificio del cervo sacro*</td><td>Yorgos Lanthimos</td><td>2017</td><td>Ispirato a *Ifigenia in Aulide* di Euripide</td><td>Sacrificio morale, destino ineluttabile, dinamiche familiari oppressive.</td></tr>
+                <tr><td>*I Viaggiatori*</td><td>Theo Angelopoulos</td><td>1975</td><td>Metafora del mito degli Atridi (Agamennone, Oreste)</td><td>Tragedia contemporanea, riflessione storica e politica, complessi psicoanalitici.</td></tr>
+                <tr><td>*Viaggio a Citera*</td><td>Theo Angelopoulos</td><td>1984</td><td>Ritorno di Ulisse in patria</td><td>Esilio, memoria storica, ricerca esistenziale e politica.</td></tr>
+                <tr><td>*Funeral Parade of Roses*</td><td>Toshio Matsumoto</td><td>1969</td><td>Riuso del mito di Edipo (lettura freudiana)</td><td>Problema dell'identità, riflessione sul Giappone post-bellico.</td></tr>
+                <tr><td>*Inception*</td><td>Christopher Nolan</td><td>2010</td><td>Allegoria della caverna di Platone, Arianna</td><td>Risveglio, confronto con la realtà, guida attraverso labirinti mentali.</td></tr>
+            </tbody>
+        </table>
+
+        <h2>Il Potere Simbolico: La Favola nel Linguaggio Cinematografico</h2>
+        <p>Le favole e le fiabe, con le loro intrinseche lezioni morali e personaggi archetipici, sono strumenti potenti utilizzati da sceneggiatori e registi per veicolare significati psicologici e sociali più profondi nel cinema.</p>
+
+        <h3>La Favola: Morale, Immaginario e Sviluppo Psicologico</h3>
+        <p>Le fiabe affondano le loro radici in tradizioni popolari laiche, caratterizzate dall'uso di elementi magici e fantastici. Le favole, al contrario, offrono tipicamente una lezione morale più semplice e diretta.[30] Entrambe le forme svolgono ruoli cruciali nello sviluppo infantile: le fiabe aiutano i bambini a elaborare le proprie emozioni e i conflitti interni, mentre le favole contribuiscono alla loro comprensione della morale sociale.[30] Queste narrazioni spesso attingono a problematiche inconsce e soddisfano un bisogno umano fondamentale di credere in qualcosa di magico.[30] La struttura e la forma intrinseche delle fiabe forniscono un quadro per i bambini per strutturare i loro sogni ad occhi aperti, guidando così le loro scelte di vita e lo sviluppo emotivo.[30] Psicologicamente, favole e fiabe simboleggiano lo sviluppo della personalità umana, illustrando la progressione da uno stato indifferenziato all'integrazione di Es, Io e Super-Io, un processo che spesso comporta sofferenze e rinunce necessarie.[30] Le fiabe sono narrazioni antiche, tramandate oralmente, che presentano esseri umani e soprannaturali, inclusi personaggi fantastici archetipici come orchi, streghe e fate.[31] Esse inventano situazioni fantastiche che costituiscono un genere narrativo distinto, frequentemente adattato da scrittori per romanzi e storie, in particolare per un pubblico più giovane.[31] La loro ampia diffusione è evidente in vari media, tra cui cinema, cartoni animati e videogiochi.[31]</p>
+
+        <h3>Dalle Fiabe Tradizionali alle Allegorie Moderne</h3>
+        <p>Il cinema reinterpreta e rielabora attivamente antiche favole e fiabe, sia trasponendole direttamente sullo schermo sia trasformandone narrativamente i contenuti principali.[30] I cineasti sfruttano gli elementi magici e fantastici insiti in queste storie per creare rappresentazioni oniriche o simboliche della realtà.[30] L'espressione cinematografica delle favole varia ampiamente a seconda della poetica autoriale: dagli stili cupi e gotici di Guillermo del Toro e Tim Burton, al realismo più radicato di Paul Thomas Anderson e Damien Chazelle, ai classici lieti fine di Steven Spielberg e dell'Hollywood classica, o agli approcci anti-narrativi della Nuova Hollywood e dei fratelli Coen.[30] La visione unica di Federico Fellini, ad esempio, gli ha permesso di tradurre le sue visioni oniriche personali direttamente su pellicola.[30]</p>
+        <p>Anche il cinema italiano contemporaneo mostra questa tendenza, con registi come Matteo Garrone che adattano e trasformano direttamente racconti dalla raccolta *Il cunto de li cunti* di Giambattista Basile in film come *Il racconto dei racconti* (2015), dimostrando la duratura risonanza delle strutture fiabesche.[30] Persino film apparentemente privi di elementi fiabeschi espliciti possono veicolare significati psicologici profondi legati alle favole. Ad esempio, *Dogman* (2019) di Garrone, sebbene basato su un fatto di cronaca, incarna un dilemma spesso trasmesso dalle favole: la lotta di un piccolo individuo che cerca approvazione in un mondo crudele e senza legge, portando infine a un tragico fallimento dell'integrazione, in contrasto con l'integrazione archetipica cercata nei racconti tradizionali.[30] Steven Spielberg stesso ha riconosciuto una preferenza per film "più allegorici" discutendo del suo autobiografico *The Fabelmans*, suggerendo un uso consapevole di elementi fiabeschi per esplorare verità personali più profonde sulla sua infanzia e sul suo rapporto con il cinema.[32]</p>
+        <p>Film con lezioni morali esplicite sono una diretta continuazione della tradizione favolistica. *Babe, maialino coraggioso* (1995) è descritto come un "racconto morale che celebra la purezza d'animo, la dignità, la libertà, il rispetto dell'altro e delle diversità, la fratellanza universale, la non-violenza, il coraggio, la perseveranza".[33] Degno di nota, il film presenta persino un "coro greco" di topi cantanti, collegandolo esplicitamente alle forme drammatiche classiche.[34, 35] *Uccellacci e uccellini* (1966) di Pier Paolo Pasolini è caratterizzato come un'"amara allegoria fiabesca", utilizzando il formato della favola per fornire un profondo commento sociale e politico.[36] *Il mago di Oz* (1939) si erge come un esempio quintessenziale di favola cinematografica profondamente radicata nell'identità culturale americana, funzionando come una "raccolta di archetipi" e persino come allegoria politica.[37] Le moderne fiabe animate della Disney, come *Oceania*, *Ribelle - The Brave* e *Coco* [38], illustrano come temi tradizionali di scoperta di sé, superamento delle avversità e legami familiari siano adattati per un pubblico globale contemporaneo. La presenza di animali parlanti nel cinema spesso veicola un significativo peso allegorico o morale, come si vede in film come *Babe*, *Stuart Little*, *Kung Fu Panda* e *Dolittle* [39, 40], usando l'antropomorfismo per trasmettere lezioni umane.</p>
+        <p>L'adattamento cinematografico di favole e fiabe, sia esplicito che allegorico, rivela un persistente bisogno umano di narrazioni che semplifichino dilemmi psicologici e sociali complessi in forme digeribili e archetipiche.[30] Sceneggiatori e registi sfruttano il simbolismo intrinseco delle favole per esplorare temi universali di sviluppo personale (ad esempio, l'integrazione della personalità, o il suo fallimento, come visto in *Dogman* [30]), critica sociale (*Uccellacci e uccellini* [36]) e istruzione morale (*Babe* [33]). Ciò suggerisce che le favole fungono da "specchio" culturale [19] per questioni inconsce collettive, fornendo uno spazio sicuro, spesso fantastico, per il pubblico per elaborare verità difficili e interiorizzare quadri morali.</p>
+        <p>Il passaggio osservato dalle fiabe tradizionali con "lieto fine" a favole cinematografiche "oscure" o "anti-narrative" [30] riflette un'evoluzione sociale nel modo in cui le complessità morali e la sofferenza umana sono rappresentate nella cultura popolare. Mentre le favole classiche offrivano spesso chiare lezioni morali e risoluzioni, le moderne favole cinematografiche, adottando una lente "tragica" o "anti-favolistica" [30], suggeriscono una visione più sfumata e spesso pessimistica dell'integrazione umana e delle sfide sociali. Ciò implica una maturazione della forma della favola per riflettere ansie e ambiguità contemporanee, e una volontà di esplorare conflitti irrisoluti piuttosto che conclusioni semplici e confortanti.</p>
+
+        <h4>Tabella 2: Film con Elementi di Favola e Allegoria</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Titolo Film</th>
+                    <th>Regista</th>
+                    <th>Anno</th>
+                    <th>Connessione Favola/Allegoria</th>
+                    <th>Tema Morale/Psicologico Sottostante</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>*Babe, maialino coraggioso*</td><td>Chris Noonan</td><td>1995</td><td>Favola morale con animali parlanti</td><td>Purezza d'animo, rispetto delle diversità, non-violenza, perseveranza.</td></tr>
+                <tr><td>*Uccellacci e uccellini*</td><td>Pier Paolo Pasolini</td><td>1966</td><td>Allegoria fiabesca amara</td><td>Condizione umana, povertà, critica sociale e politica.</td></tr>
+                <tr><td>*Il mago di Oz*</td><td>Victor Fleming</td><td>1939</td><td>Favola archetipica e allegoria politica</td><td>La ricerca di sé, il coraggio, l'intelligenza e il cuore, l'identità americana.</td></tr>
+                <tr><td>*Dogman*</td><td>Matteo Garrone</td><td>2019</td><td>Favola anti-narrativa, fallimento dell'integrazione</td><td>La lotta dell'individuo in un mondo crudele, la solitudine e la perdita di dignità.</td></tr>
+                <tr><td>*Oceania*</td><td>Ron Clements, John Musker</td><td>2016</td><td>Fiaba moderna Disney</td><td>Scoperta di sé, superamento delle paure, legame con le proprie origini.</td></tr>
+                <tr><td>*Brave - Ribelle*</td><td>Mark Andrews, Brenda Chapman</td><td>2012</td><td>Fiaba moderna Disney</td><td>Conflitto madre-figlia, autodeterminazione, accettazione delle differenze.</td></tr>
+                <tr><td>*Coco*</td><td>Lee Unkrich, Adrian Molina</td><td>2017</td><td>Fiaba moderna Disney</td><td>Importanza della famiglia, del ricordo, del perseguire i propri sogni.</td></tr>
+                <tr><td>*La volpe e la bambina*</td><td>Luc Jacquet</td><td>2007</td><td>Favola ecologista</td><td>L'amicizia tra uomo e natura, il tentativo di addomesticare il selvaggio.</td></tr>
+            </tbody>
+        </table>
+
+        <h2>Il Culmine Emotivo: La Catarsi tra Sceneggiatura e Regia</h2>
+        <p>La catarsi nel cinema è il culmine di scelte narrative e cinematografiche attentamente orchestrate, rappresentando un risultato profondamente collaborativo tra sceneggiatore e regista.</p>
+
+        <h3>La Catarsi Aristotelica: Purificazione di Paura e Pietà</h3>
+        <p>Il termine "catarsi" (κάθαρσις) deriva dal greco, significando "purificazione" o "pulizia".[17, 18, 41] Aristotele, nella sua opera fondamentale *Poetica*, definì la catarsi come la purificazione e la purgazione di emozioni specifiche—in particolare, pietà e terrore—ottenuta attraverso l'esperienza della tragedia.[17, 41] Fondamentalmente, la catarsi aristotelica è un effetto sperimentato dal *pubblico* come risultato di una narrazione ben costruita, piuttosto che esclusivamente dai personaggi all'interno della storia.[41] In senso più ampio, essa rappresenta un rilascio di emozioni forti o represse, che porta a un profondo senso di rinnovamento e restaurazione.[41, 42] Nel contesto della psicologia moderna, la catarsi è intesa come il punto culminante di un processo terapeutico, che consente al paziente di liberarsi da complessi e traumi profondamente radicati.[17, 43, 44, 45] Essa facilita la comprensione razionale ed emotiva di stati psicologici dolorosi, consentendo la rievocazione sicura di eventi drammatici o traumatici.[42] Un'esperienza veramente catartica acquista un valore significativo quando favorisce l'empatia, permettendo agli individui di comprendere le proprie esperienze emotive e, di conseguenza, quelle degli altri.[42] In definitiva, è una "purificazione/validazione dell'emozione nel pubblico" [41], che offre un'elaborazione emotiva profonda.</p>
+
+        <h3>Tecniche di Sceneggiatura per la Catarsi: Costruzione del Conflitto e Arco di Trasformazione</h3>
+        <p>Gli sceneggiatori costruiscono meticolosamente le narrazioni per raggiungere la catarsi, spesso basandosi su modelli strutturali consolidati come il paradigma in tre atti. Questa struttura fornisce una chiara "ricetta per la catarsi e la conclusione" costruendo la tensione e guidando il pubblico attraverso picchi emotivi e risoluzioni.[29] L'arco narrativo del personaggio, o "arco di trasformazione", è di primaria importanza. Questo percorso di cambiamento e crescita è essenziale affinché il protagonista affronti e superi conflitti interni ed esterni, portando a un significativo rilascio emotivo per il pubblico.[3, 4, 46] Il punto di "crisi" all'interno di una storia è un momento cruciale, che offre al protagonista l'opportunità di "uccidere il vecchio sé e rinascere", significando una profonda trasformazione che può essere profondamente catartica per lo spettatore.[47] Il secondo punto di svolta nella struttura in tre atti è spesso progettato per presentare "la cosa peggiore possibile che potrebbe accadere al personaggio", costringendolo in una situazione senza via d'uscita in cui è costretto a cambiare, intensificando così la posta in gioco emotiva e preparando il terreno per la catarsi.[46] Il messaggio generale della storia è tipicamente comunicato attraverso il percorso di cambiamento del protagonista, rendendo la sua trasformazione parte integrante dell'impatto tematico del film.[4] Gli sceneggiatori impiegano varie tecniche per mantenere il coinvolgimento del pubblico e costruire la suspense, inclusa l'inserimento strategico di colpi di scena e momenti di tensione accresciuta.[3, 48] Un "lungo indugio" prima di un evento narrativo cruciale può aumentarne significativamente l'importanza, attirando il lettore più a fondo nella storia e amplificando l'eventuale impatto emotivo.[48] Il principio "mostrare, non raccontare" è vitale per trasmettere le emozioni in modo efficace, consentendo al pubblico di vivere i sentimenti dei personaggi piuttosto che essere semplicemente informato su di essi.[5] Il climax è il "punto culminante" della storia, lo "scontro finale", dove il protagonista affronta il suo antagonista o la sua sfida principale e compie la scelta più difficile e determinante. Un climax ben costruito è inaspettato ma logico, e offre un potente impatto emotivo.[49]</p>
+
+        <h3>Tecniche di Regia per la Catarsi: Immagine, Suono e Ritmo per l'Impatto Emotivo</h3>
+
+        <h4>Tecniche Visive</h4>
+        <p>I registi utilizzano una sofisticata gamma di tecniche visive—inquadrature, illuminazione, palette di colori e movimenti di macchina—per manipolare la percezione del pubblico ed evocare risposte emotive specifiche.[14] I primi piani e i primissimi piani sono particolarmente efficaci nel rivelare le sfumature delle emozioni dei personaggi, favorendo un forte senso di empatia e connessione con il pubblico.[11, 13] I long take, immergendo lo spettatore in una scena continua e ininterrotta, possono aumentare significativamente la tensione e creare un potente senso di realtà.[12] Le inquadrature olandesi, o angolazioni oblique della telecamera, sono spesso impiegate per trasmettere stati psicologici come disorientamento, disagio o instabilità, contribuendo all'atmosfera emotiva della scena.[12, 13] La "money shot", sebbene costosa, è un momento visivo strategicamente progettato e di grande impatto, inteso a fornire una sorpresa potente o un pugno emotivo.[11] La composizione visiva complessiva dovrebbe riflettere e migliorare costantemente il tono e il contenuto emotivo delle scene, garantendo un'esperienza coesa e di impatto.[50] L'illusione fondamentale del movimento, creata proiettando 24 fotogrammi al secondo, è la base dell'immersione cinematografica, consentendo il flusso continuo di informazioni visive che contribuisce al coinvolgimento emotivo.[51]</p>
+
+        <h4>Sound Design e Musica</h4>
+        <p>Il sound design e la musica sono elementi indispensabili nel plasmare il flusso, il ritmo e l'atmosfera generale di un film. Essi aggiungono una profondità cruciale al montaggio e creano una connessione profonda, spesso subconscia, tra lo spettatore e l'azione sullo schermo, generando un'esperienza immersiva.[52, 53, 54, 55, 56] La musica può stabilire il ritmo e l'atmosfera fondamentali di un film, talvolta venendo selezionata già in fase di pre-produzione per guidare la narrazione visiva.[56] L'ambiente sonoro, o i suoni ambientali, costituiscono il primo strato del sound design, stabilendo l'ambientazione della scena e rendendola viva e immersiva senza essere invadente.[56] Gli effetti sonori (SFX) e il Foley (suoni registrati specificamente per sincronizzarsi con l'azione sullo schermo) contribuiscono significativamente al realismo e all'impatto emotivo.[56] Fondamentalmente, il sound design non deve essere sempre letterale; il suo scopo primario è rafforzare l'emozione desiderata nel pubblico, consentendo scelte audio creative e simboliche.[56] Tecniche come il panning possono creare un paesaggio sonoro più dinamico e realistico, guidando l'attenzione del pubblico.[56] Il riverbero può essere utilizzato per manipolare la percezione dello spazio, facendo sembrare i suoni più grandi o più distanti, influenzando così l'atmosfera della scena.[56] I J-cut (l'audio della scena successiva inizia prima del taglio visivo) e gli L-cut (l'audio della scena precedente persiste mentre le immagini cambiano) sono tecniche di montaggio che fluidificano le transizioni, migliorando il flusso narrativo e la continuità emotiva.[56] Musica e suono attivamente "plasmano la narrazione visiva" e "migliorano la visione", lavorando in concerto con le immagini per approfondire la narrazione.[53] I sound designer creano un "tessuto sonoro" che avvolge lo spettatore, generando atmosfera e tensione emotiva.[54] Facendo eco ad antiche credenze filosofiche, la musica stessa può contribuire alla catarsi liberando l'anima da passioni irrazionali.[17]</p>
+
+        <h4>Montaggio e Ritmo</h4>
+        <p>Il montaggio è l'arte di determinare la velocità e la sequenza delle inquadrature, influenzando direttamente l'energia e la tensione di una scena.[57] Il montaggio rapido è spesso impiegato per creare un senso di urgenza, tensione e velocità (ad esempio, le intense sequenze d'azione in *Mad Max: Fury Road* o l'iconica scena della doccia in *Psycho*).[57] Al contrario, il montaggio lento viene utilizzato per enfatizzare momenti drammatici o emotivi, consentendo al pubblico di soffermarsi e assorbire il peso della scena (ad esempio, l'atmosfera contemplativa in *Blade Runner 2049*).[57] Il montaggio ritmico sincronizza la durata delle inquadrature con la musica o il suono, creando un effetto emotivo potente, quasi musicale (ad esempio, l'interazione azione-musica in *Baby Driver* o l'intensità frammentata di *Requiem for a Dream*).[57] I jump cut possono creare intenzionalmente un effetto disorientante o frammentato, interrompendo la continuità tradizionale.[57] Il montaggio di continuità assicura transizioni fluide tra le inquadrature, consentendo allo spettatore di seguire la narrazione senza interruzioni, il che è cruciale per mantenere l'immersione e il flusso emotivo.[57] La struttura complessiva della storia, inclusa la costruzione e l'esecuzione del climax, è progettata per costruire l'intensità emotiva e affascinare il pubblico per tutta la durata del film.[50]</p>
+        <p>La catarsi non è un evento singolo, ma il culmine di scelte narrative e cinematografiche attentamente orchestrate, che rappresentano un risultato profondamente collaborativo. Gli sceneggiatori costruiscono la tensione emotiva attraverso archi dei personaggi avvincenti, conflitti crescenti e colpi di scena strategici [3, 4, 46, 49], ponendo le basi emotive. I registi poi amplificano e veicolano questa tensione attraverso tecniche visive magistrali (ad esempio, primi piani per l'intimità, long take per l'immersione, angolazioni olandesi per il disagio psicologico [12, 13]), un potente sound design e musica (che plasmano l'atmosfera, aggiungono profondità, creano immersione [52, 54, 56]) e un montaggio ritmico preciso (che controlla il ritmo e l'intensità emotiva [57]). Il "climax" [49, 58] funge da picco narrativo in cui questo sforzo combinato mira al massimo impatto emotivo e rilascio. Questo implica che la catarsi è un risultato profondamente collaborativo, dove il "cosa" dello sceneggiatore (il potenziale emotivo della storia) incontra il "come" del regista (l'esecuzione sensoriale e strutturale).</p>
+        <p>L'ampia gamma di film classificati come "catartici" [59] suggerisce che il cinema funge da rituale moderno per l'elaborazione emotiva collettiva, rispecchiando la funzione della tragedia greca antica.[15, 17] Sperimentando "pietà e terrore" [17] in un contesto sicuro e fittizio, il pubblico può "liberare emozioni represse" [45], "comprendere l'incomprensibile" [42], e persino "abituarsi a sopportare i mali e il dolore che potranno colpire lo spettatore in futuro".[17] Ciò implica che la catarsi cinematografica non è solo intrattenimento, ma un meccanismo psicologico e potenzialmente sociale vitale per affrontare le sofferenze e le complessità intrinseche della vita, favorendo l'empatia e l'auto-riflessione. Il fatto che questi film spesso inducano al pianto [59] evidenzia la manifestazione fisiologica di questo rilascio emotivo, rafforzandone l'aspetto terapeutico.</p>
+
+        <h3>Filmografia Selezionata: Momenti di Rilascio e Trasformazione</h3>
+        <p>Una vasta gamma di film è riconosciuta per la loro capacità di indurre catarsi, spesso attraverso un potente rilascio emotivo come il pianto. Questi includono: *Million Dollar Baby*, *Il postino*, *Alabama Monroe*, *Le onde del destino*, *21 Grammi*, *Titanic*, *Still Life*, *Il miglio verde*, *Manchester by the Sea*, *A proposito di Schmidt*, *Love Story* e *Hachiko*.[59]</p>
+        <p>*Million Dollar Baby* è particolarmente degno di nota per il suo profondo impatto etico, politico e filosofico, esplorando temi universali di dolore, dignità e condizione umana. Trascende l'essere semplicemente un film di boxe o un dibattito sull'eutanasia, presentando invece una potente allegoria delle scelte dolorose della vita e della celebrazione dell'esperienza vissuta.[60, 61] Nonostante i suoi elementi tragici, la conclusione del film offre uno "spiraglio di luce" [60], fornendo un'esperienza catartica complessa.</p>
+        <p>*Inception* è un altro esempio avvincente, che esplora temi legati all'allegoria della caverna di Platone (risveglio, confronto con la vera realtà).[21] Il personaggio di Arianna, che prende il nome dalla figura mitologica che aiutò Teseo a navigare nel labirinto, guida simbolicamente il protagonista attraverso complessi paesaggi onirici, alludendo a un viaggio di scoperta di sé e risoluzione che può essere profondamente catartico.[62]</p>
+
+        <h4>Tabella 3: Film e Scene Catartiche Esemplari</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Titolo Film</th>
+                    <th>Regista</th>
+                    <th>Anno</th>
+                    <th>Scena/Tecnica Specifica</th>
+                    <th>Come si Raggiunge la Catarsi (Narrazione/Visivo/Audio)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>*Million Dollar Baby*</td><td>Clint Eastwood</td><td>2004</td><td>Finale (la scelta di Frankie)</td><td>Culmine dell'arco di trasformazione dei personaggi, che affrontano dilemmi morali estremi. La regia asciutta e la musica malinconica amplificano il dolore e il gesto d'amore estremo, portando a un rilascio emotivo profondo.[60, 61]</td></tr>
+                <tr><td>*Il postino*</td><td>Massimo Troisi</td><td>1994</td><td>L'addio a Neruda e la scoperta delle registrazioni</td><td>La narrazione intrisa di amicizia e malinconia, unita alla consapevolezza della scomparsa dell'attore, crea un forte impatto emotivo e un pianto liberatorio.[59]</td></tr>
+                <tr><td>*Titanic*</td><td>James Cameron</td><td>1997</td><td>Il naufragio e l'addio di Jack e Rose</td><td>La narrazione epica di un amore proibito e la tragedia imminente generano suspense ed empatia. Il climax visivo e sonoro del naufragio, con la musica evocativa, porta a un'inevitabile commozione e rilascio.[59]</td></tr>
+                <tr><td>*Il miglio verde*</td><td>Frank Darabont</td><td>1999</td><td>L'esecuzione di John Coffey</td><td>L'ingiustizia e la compassione per un protagonista innocente generano un senso di tristezza e impotenza, culminando in un pianto catartico. La regia enfatizza la dignità del personaggio e l'assurdità della situazione.[59]</td></tr>
+                <tr><td>*Hachiko*</td><td>Lasse Hallström</td><td>2008</td><td>La fedeltà incondizionata di Hachiko</td><td>La narrazione si concentra sull'amore incondizionato e la lealtà dell'animale, creando una storia commovente che tocca profondamente gli spettatori, specialmente quelli sensibili al legame uomo-animale.[59]</td></tr>
+                <tr><td>*Inception*</td><td>Christopher Nolan</td><td>2010</td><td>Il viaggio attraverso i livelli del sogno e la risoluzione finale di Cobb</td><td>La complessa struttura narrativa e visiva, con l'uso di effetti speciali e un sound design immersivo, guida lo spettatore attraverso un percorso di scoperta e risoluzione psicologica, culminando nel confronto con il trauma e la potenziale liberazione.[21, 62]</td></tr>
+            </tbody>
+        </table>
+
+        <h2>Progettare la Locandina del Cineforum: Un Invito Visivo</h2>
+        <p>La locandina di un cineforum è più di un semplice annuncio; è un invito visivo che deve comunicare l'essenza e la profondità dei temi trattati, attirando il pubblico desiderato.</p>
+
+        <h3>Elementi Essenziali per una Locandina Efficace</h3>
+        <p>Per una locandina che catturi l'attenzione e informi efficacemente, è fondamentale considerare diversi elementi. La **chiarezza e leggibilità** sono primarie: il testo deve essere facilmente leggibile anche a distanza, il che richiede un forte contrasto cromatico tra sfondo e scritte. È consigliabile evitare caratteri eccessivamente elaborati a favore di font chiari e leggibili.[63] Le **informazioni essenziali** non possono mancare: il titolo del cineforum, le date e gli orari specifici dell'evento, il nome completo e l'indirizzo della location, e contatti chiari (ad esempio, sito web, pagina social, numero di telefono) per ulteriori informazioni.[63, 64]</p>
+        <p>La **coerenza del design con il tema** è cruciale: lo stile grafico complessivo della locandina dovrebbe riflettere visivamente il tono e l'atmosfera dell'evento. Per un cineforum di stampo intellettuale, ciò significa un design che sia al contempo sofisticato e invitante.[63] Gli **elementi grafici d'impatto**, come immagini o illustrazioni di alta qualità, sono fondamentali per attirare l'attenzione. Se pertinenti, i loghi dell'ente organizzatore o degli sponsor dovrebbero essere ben visibili.[63] È importante scegliere un **formato adeguato**: i formati verticali standard (ad esempio, A4 o A3) sono idonei per l'affissione in spazi pubblici, mentre versioni digitali ottimizzate sono necessarie per una diffusione efficace sui social media e tramite email.[63] Il principio "less is more" è spesso vincente: evitare di sovraccaricare la locandina con informazioni eccessive o superflue. Un approccio minimalista può risultare più intrigante e comunicare in modo più efficace di un design affollato.[64] L'incorporazione di **fotografie pertinenti e di alta qualità** può aumentare la credibilità e l'attrattiva visiva della locandina.[64] Infine, un **uso creativo e d'impatto della tipografia** può contribuire significativamente all'estetica generale e al messaggio della locandina.[64]</p>
+
+        <h3>Suggerimenti di Design e Immagini per Catturare l'Essenza Tematica</h3>
+        <p>Il titolo "L'Anima del Racconto: Sceneggiatori, Registi e l'Eredità Classica nel Cinema" dovrebbe essere l'elemento testuale centrale. Per evocare visivamente i ruoli dello sceneggiatore e del regista, si possono considerare diverse metafore. Per lo **sceneggiatore**, immagini che richiamano la creazione e la struttura: una penna d'oca su pergamena, una macchina da scrivere stilizzata, o pagine di sceneggiatura stilizzate. Un sottile motivo a labirinto potrebbe richiamare la complessità narrativa e il ruolo mitologico di Arianna nel guidare attraverso di essa, come visto in *Inception*.[62] Un progetto architettonico o un disegno tecnico potrebbero visivamente trasmettere il concetto di "architetto della visione".[2] Per il **regista**, immagini che simboleggiano la visione e il controllo: un obiettivo di macchina da presa con un occhio umano riflesso, una classica sedia da regista, un ciak, o mani che inquadrano una scena.</p>
+        <p>Per i **temi classici**, si possono integrare metafore visive evocative. Per la **tragedia greca e il mito**, elementi architettonici classici come colonne spezzate, maschere stilizzate (a rappresentare tragedia e dramma), o una silhouette di un antico teatro greco.[15] Figure mitologiche iconiche, rese in modo sottile (ad esempio, l'ombra di un Minotauro, un cavallo di Troia stilizzato [20]), o una statua classica frammentata potrebbero simboleggiare la reinterpretazione delle forme antiche. Per la **favola**, si possono utilizzare figure animali stilizzate (richiamando film allegorici come *Babe* [33, 39]), la silhouette di una foresta mistica, un sentiero tortuoso che rappresenta un viaggio, o un singolo oggetto simbolico chiaro che suggerisce una lezione morale. Un'estetica da "libro di fiabe", magari con pagine aperte che rivelano immagini cinematografiche, potrebbe essere efficace. Per la **catarsi**, immagini astratte di rilascio emotivo: luce che si fa strada nell'oscurità, una singola lacrima stilizzata, o un fotogramma potente ed emotivamente carico di un film (ad esempio, da uno dei film catartici elencati nella Tabella 3). Elementi visivi che suggeriscono "purificazione" o "pulizia" [17, 41], come acqua che scorre o nebbia che si dissolve, potrebbero essere esplorati. </p>
+        <p>La **palette di colori** dovrebbe essere sofisticata e evocare i temi: blu profondi o grigi per tragedia e mistero, ori caldi o toni terrosi per mito e radici antiche, colori vivaci o contrastanti per favola e fantasia. Un contrasto netto potrebbe essere utilizzato per l'elemento della catarsi, simboleggiando il rilascio emotivo. La **composizione visiva** dovrebbe impiegare principi come la "regola dei terzi" per garantire una distribuzione equilibrata e accattivante degli elementi visivi.[63] L'uso strategico dello spazio negativo può fornire respiro visivo e guidare efficacemente l'occhio dello spettatore.[63] L'obiettivo generale del design è **evocare emozioni** nel pubblico, invitandoli così alla partecipazione e al coinvolgimento con i temi del cineforum.[64]</p>
+
+        <h2>Conclusioni</h2>
+        <p>Il cinema, pur essendo una forma d'arte moderna e tecnologicamente avanzata, si rivela un potente erede delle tradizioni narrative classiche. L'analisi condotta evidenzia come le figure dello sceneggiatore e del regista, attraverso la loro sinergia creativa, siano i custodi e gli innovatori di questa eredità. Lo sceneggiatore, in quanto architetto della visione, definisce le strutture narrative e gli archi emotivi, attingendo a schemi millenari come il paradigma in tre atti e il viaggio dell'eroe, che continuano a dimostrare la loro efficacia nel coinvolgere il pubblico. Il regista, d'altra parte, traduce questa blueprint in un'esperienza sensoriale completa, utilizzando un'ampia gamma di tecniche visive, sonore e di montaggio per amplificare la tensione narrativa e guidare lo spettatore verso il culmine emotivo.</p>
+        <p>La persistente rielaborazione di tragedia greca, mito e favola nel cinema contemporaneo non è un mero esercizio stilistico, ma una testimonianza della loro capacità intrinseca di offrire un linguaggio simbolico universale per esplorare dilemmi umani senza tempo, complessi psicologici e commenti socio-politici. Queste forme antiche si adattano e si risemantizzano continuamente, dimostrando la loro duratura risonanza culturale. Il passaggio da favole con lieto fine a narrazioni più complesse e talvolta "anti-favolistiche" nel cinema moderno riflette una maturazione nella rappresentazione delle sfumature morali e delle sfide esistenziali.</p>
+        <p>In questo contesto, la catarsi emerge come l'obiettivo emotivo finale di questo processo collaborativo. Il cinema, agendo come un moderno rito collettivo, offre al pubblico uno spazio sicuro per sperimentare e purificare emozioni intense, fornendo un meccanismo psicologico vitale per affrontare la sofferenza e le complessità della vita. La capacità di un film di indurre un rilascio emotivo profondo, spesso manifestato attraverso il pianto, sottolinea il suo ruolo non solo come forma di intrattenimento, ma come strumento di elaborazione emotiva e di riflessione sulla condizione umana.</p>
+        <p>La progettazione della locandina del cineforum, quindi, non è un dettaglio secondario, ma un primo atto di comunicazione che deve visivamente prefigurare la profondità e la ricchezza di questi temi. Attraverso la scelta accurata di immagini, colori e tipografie, la locandina può evocare l'anima del racconto, invitando il pubblico a un viaggio intellettuale ed emotivo che celebra la continuità della narrazione attraverso i secoli.</p>
+
+        <!-- New Interactive Features Section -->
+        <h2 class="text-center mt-16 text-4xl font-playfair mb-6 text-[#F39C12] interactive-feature">Interagisci con i Temi del Cineforum!</h2>
+
+        <div class="interactive-feature">
+            <h3>✨ Suggerisci Film a Tema</h3>
+            <p class="text-gray-300 mb-4">Ottieni un suggerimento di un film che si collega ai temi di questo cineforum, evitando quelli già menzionati.</p>
+            <button id="suggestFilmBtn">Suggerisci un Film</button>
+            <div id="suggestFilmResult" class="api-result">
+                <div class="loading-spinner" id="suggestFilmSpinner"></div>
+                <p id="suggestFilmText"></p>
+            </div>
+        </div>
+
+        <div class="interactive-feature">
+            <h3>✨ Spiegazione Rapida di un Termine & Ascolto (TTS)</h3>
+            <p class="text-gray-300 mb-4">Inserisci un termine correlato ai temi del cineforum (es. "catarsi", "archetipo") e ottieni una spiegazione, che puoi anche ascoltare.</p>
+            <input type="text" id="termInput" placeholder="Inserisci un termine..." class="text-center">
+            <button id="explainTermBtn">Spiega Termine</button>
+            <div id="explainTermResult" class="api-result">
+                <div class="loading-spinner" id="explainTermSpinner"></div>
+                <p id="explainTermText"></p>
+                <div id="ttsControls" class="tts-controls mt-4 hidden">
+                    <button id="listenBtn" disabled>▶️ Ascolta il Concetto</button>
+                    <div id="ttsSpinner" class="loading-spinner"></div>
+                    <audio id="ttsAudio" controls class="mt-4 w-full" style="display:none;"></audio>
+                </div>
+            </div>
+        </div>
+
+        <div class="interactive-feature">
+            <h3>✨ Analisi Archetipo Personaggio</h3>
+            <p class="text-gray-300 mb-4">Analizza l'archetipo narrativo di un personaggio specifico di un film (ad esempio: "Frodo" in "Il Signore degli Anelli").</p>
+            <div class="input-group">
+                <input type="text" id="characterFilmInput" placeholder="Titolo del Film" class="text-center w-full sm:w-1/2">
+                <input type="text" id="characterNameInput" placeholder="Nome del Personaggio" class="text-center w-full sm:w-1/2">
+            </div>
+            <button id="analyzeCharacterBtn">Analizza Archetipo</button>
+            <div id="analyzeCharacterResult" class="api-result">
+                <div class="loading-spinner" id="analyzeCharacterSpinner"></div>
+                <p id="analyzeCharacterText"></p>
+            </div>
+        </div>
+
+        <div class="interactive-feature">
+            <h3>✨ Analisi Tematica del Film</h3>
+            <p class="text-gray-300 mb-4">Inserisci il titolo di un film e scopri come si collega ai temi del cineforum (tragedia, mito, favola, eroe/antagonista, catarsi).</p>
+            <input type="text" id="filmAnalysisInput" placeholder="Inserisci il titolo del film..." class="text-center">
+            <button id="analyzeFilmBtn">Analizza Film</button>
+            <div id="analyzeFilmResult" class="api-result">
+                <div class="loading-spinner" id="analyzeFilmSpinner"></div>
+                <p id="analyzeFilmText"></p>
+            </div>
+        </div>
+
+        <div class="interactive-feature">
+            <h3>✨ Genera Domanda di Discussione</h3>
+            <p class="text-gray-300 mb-4">Inserisci un tema e ottieni una domanda stimolante per la discussione del cineforum.</p>
+            <input type="text" id="discussionTopicInput" placeholder="Inserisci un tema (es. 'catarsi', 'ruolo dell'eroe')..." class="text-center">
+            <button id="generateDiscussionQuestionBtn">Genera Domanda</button>
+            <div id="generateDiscussionQuestionResult" class="api-result">
+                <div class="loading-spinner" id="generateDiscussionQuestionSpinner"></div>
+                <p id="generateDiscussionQuestionText"></p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // --- Utility functions for TTS (PCM to WAV conversion) ---
+
+        /** Converts a base64 string to an ArrayBuffer. */
+        function base64ToArrayBuffer(base64) {
+            const binaryString = atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return bytes.buffer;
+        }
+
+        /** Writes a string to a DataView at a specific offset. */
+        function writeString(view, offset, string) {
+            for (let i = 0; i < string.length; i++) {
+                view.setUint8(offset + i, string.charCodeAt(i));
+            }
+        }
+
+        /** Converts 16-bit signed PCM data (Int16Array) to a WAV Blob. */
+        function pcmToWav(pcm16, sampleRate) {
+            const numChannels = 1;
+            const bytesPerSample = 2; // Int16
+            const blockAlign = numChannels * bytesPerSample;
+            const byteRate = sampleRate * blockAlign;
+
+            // RIFF header + fmt chunk + data chunk header (44 bytes) + PCM data
+            const wavData = new ArrayBuffer(44 + pcm16.length * bytesPerSample);
+            const view = new DataView(wavData);
+            let offset = 0;
+
+            // RIFF chunk (4 bytes each)
+            writeString(view, offset, 'RIFF'); offset += 4;
+            view.setUint32(offset, 36 + pcm16.length * bytesPerSample, true); offset += 4; // File size
+            writeString(view, offset, 'WAVE'); offset += 4;
+
+            // fmt chunk
+            writeString(view, offset, 'fmt '); offset += 4;
+            view.setUint32(offset, 16, true); offset += 4; // Sub-chunk size (16 for PCM)
+            view.setUint16(offset, 1, true); offset += 2;  // Audio format (1 for PCM)
+            view.setUint16(offset, numChannels, true); offset += 2;
+            view.setUint32(offset, sampleRate, true); offset += 4;
+            view.setUint32(offset, byteRate, true); offset += 4;
+            view.setUint16(offset, blockAlign, true); offset += 2;
+            view.setUint16(offset, bytesPerSample * 8, true); offset += 2; // Bits per sample (16)
+
+            // data chunk
+            writeString(view, offset, 'data'); offset += 4;
+            view.setUint32(offset, pcm16.length * bytesPerSample, true); offset += 4; // Data size
+
+            // Write PCM data (16-bit signed integers)
+            for (let i = 0; i < pcm16.length; i++, offset += bytesPerSample) {
+                view.setInt16(offset, pcm16[i], true);
+            }
+
+            return new Blob([wavData], { type: 'audio/wav' });
+        }
+        
+        // --- DOM Elements ---
+        const suggestFilmBtn = document.getElementById('suggestFilmBtn');
+        const suggestFilmResult = document.getElementById('suggestFilmResult');
+        const suggestFilmText = document.getElementById('suggestFilmText');
+        const suggestFilmSpinner = document.getElementById('suggestFilmSpinner');
+
+        const termInput = document.getElementById('termInput');
+        const explainTermBtn = document.getElementById('explainTermBtn');
+        const explainTermResult = document.getElementById('explainTermResult');
+        const explainTermText = document.getElementById('explainTermText');
+        const explainTermSpinner = document.getElementById('explainTermSpinner');
+        const listenBtn = document.getElementById('listenBtn');
+        const ttsAudio = document.getElementById('ttsAudio');
+        const ttsControls = document.getElementById('ttsControls');
+        const ttsSpinner = document.getElementById('ttsSpinner');
+
+        const filmAnalysisInput = document.getElementById('filmAnalysisInput');
+        const analyzeFilmBtn = document.getElementById('analyzeFilmBtn');
+        const analyzeFilmResult = document.getElementById('analyzeFilmResult');
+        const analyzeFilmText = document.getElementById('analyzeFilmText');
+        const analyzeFilmSpinner = document.getElementById('analyzeFilmSpinner');
+
+        const discussionTopicInput = document.getElementById('discussionTopicInput');
+        const generateDiscussionQuestionBtn = document.getElementById('generateDiscussionQuestionBtn');
+        const generateDiscussionQuestionResult = document.getElementById('generateDiscussionQuestionResult');
+        const generateDiscussionQuestionText = document.getElementById('generateDiscussionQuestionText');
+        const generateDiscussionQuestionSpinner = document.getElementById('generateDiscussionQuestionSpinner');
+
+        const characterFilmInput = document.getElementById('characterFilmInput');
+        const characterNameInput = document.getElementById('characterNameInput');
+        const analyzeCharacterBtn = document.getElementById('analyzeCharacterBtn');
+        const analyzeCharacterResult = document.getElementById('analyzeCharacterResult');
+        const analyzeCharacterText = document.getElementById('analyzeCharacterText');
+        const analyzeCharacterSpinner = document.getElementById('analyzeCharacterSpinner');
+        
+        // --- Core API Call Functions ---
+
+        /** Calls the Gemini API for standard text generation. */
+        async function callGeminiTextAPI(prompt, targetTextElement, targetSpinnerElement, tablesContent = "") {
+            targetSpinnerElement.style.display = 'inline-block';
+            targetTextElement.style.display = 'none';
+            targetTextElement.textContent = ''; // Clear previous results
+            
+            const targetResultContainer = targetTextElement.closest('.api-result');
+            if (targetResultContainer) {
+                targetResultContainer.style.display = 'block'; // Show the result container
+            }
+
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt + (tablesContent ? "\n\n" + tablesContent : "") }] });
+            
+            const payload = { 
+                contents: chatHistory,
+                // Ensure the model responds in Italian
+                systemInstruction: { parts: [{ text: "Rispondi sempre in italiano, in modo conciso e analitico." }] }
+            };
+            
+            const apiKey = ""; // Canvas will provide this at runtime
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            for (let attempt = 1; attempt <= 3; attempt++) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const result = await response.json();
+                    
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        targetTextElement.textContent = text;
+                        targetTextElement.style.display = 'block';
+                        return text; // Return the text for TTS use
+                    } else {
+                        targetTextElement.textContent = "Spiacente, non sono riuscito a generare una risposta. Riprova.";
+                        targetTextElement.style.display = 'block';
+                        return null;
+                    }
+                } catch (error) {
+                    console.error(`Attempt ${attempt}: Error calling Gemini Text API:`, error);
+                    if (attempt < 3) {
+                        await new Promise(resolve => setTimeout(resolve, Math.pow(2, attempt) * 1000));
+                    } else {
+                        targetTextElement.textContent = "Errore nella comunicazione con l'IA. Controlla la console per i dettagli.";
+                        targetTextElement.style.display = 'block';
+                        return null;
+                    }
+                } finally {
+                    targetSpinnerElement.style.display = 'none';
+                }
+            }
+        }
+
+        /** Calls the Gemini TTS API. */
+        async function callGeminiTTS(textToSpeak, targetAudioElement, targetSpinnerElement, targetButtonElement) {
+            targetSpinnerElement.style.display = 'inline-block';
+            targetButtonElement.disabled = true;
+            targetAudioElement.style.display = 'none';
+            targetAudioElement.pause();
+            
+            const payload = {
+                contents: [{
+                    parts: [{ text: textToSpeak }]
+                }],
+                generationConfig: {
+                    responseModalities: ["AUDIO"],
+                    speechConfig: {
+                        voiceConfig: {
+                            // Using a firm voice suitable for academic concepts
+                            prebuiltVoiceConfig: { voiceName: "Kore" }
+                        }
+                    }
+                },
+                // Use the TTS model
+                model: "gemini-2.5-flash-preview-tts"
+            };
+
+            const apiKey = ""; 
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
+
+            for (let attempt = 1; attempt <= 3; attempt++) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const result = await response.json();
+                    
+                    const part = result?.candidates?.[0]?.content?.parts?.[0];
+                    const audioData = part?.inlineData?.data;
+                    const mimeType = part?.inlineData?.mimeType;
+
+                    if (audioData && mimeType && mimeType.startsWith("audio/")) {
+                        // The API returns audio/L16;rate=16000
+                        const sampleRateMatch = mimeType.match(/rate=(\d+)/);
+                        const sampleRate = sampleRateMatch ? parseInt(sampleRateMatch[1], 10) : 16000;
+                        
+                        const pcmData = base64ToArrayBuffer(audioData);
+                        const pcm16 = new Int16Array(pcmData);
+                        
+                        const wavBlob = pcmToWav(pcm16, sampleRate);
+                        const audioUrl = URL.createObjectURL(wavBlob);
+                        
+                        targetAudioElement.src = audioUrl;
+                        targetAudioElement.style.display = 'block';
+                        targetButtonElement.textContent = "🔊 Pronto per l'ascolto";
+                        targetButtonElement.disabled = false;
+                        return;
+
+                    } else {
+                        alert("TTS non riuscito: Dati audio mancanti o formato non supportato.");
+                    }
+                } catch (error) {
+                    console.error(`Attempt ${attempt}: Error calling Gemini TTS API:`, error);
+                    if (attempt < 3) {
+                        await new Promise(resolve => setTimeout(resolve, Math.pow(2, attempt) * 1000));
+                    } else {
+                        alert("Errore TTS: Impossibile generare l'audio dopo diversi tentativi.");
+                    }
+                } finally {
+                    targetSpinnerElement.style.display = 'none';
+                    if (targetAudioElement.src) {
+                        targetButtonElement.disabled = false;
+                    }
+                }
+            }
+        }
+
+        // --- Existing Films Data for Suggestion ---
+        const existingFilmsTable1 = `Film presenti in Tabella 1:
+- Medea (Pier Paolo Pasolini)
+- Troy (Wolfgang Petersen)
+- O Brother, Where Art Thou? (Fratelli Coen)
+- Il sacrificio del cervo sacro (Yorgos Lanthimos)
+- I Viaggiatori (Theo Angelopoulos)
+- Viaggio a Citera (Theo Angelopoulos)
+- Funeral Parade of Roses (Toshio Matsumoto)
+- Inception (Christopher Nolan)
+`;
+
+        const existingFilmsTable2 = `Film presenti in Tabella 2:
+- Babe, maialino coraggioso (Chris Noonan)
+- Uccellacci e uccellini (Pier Paolo Pasolini)
+- Il mago di Oz (Victor Fleming)
+- Dogman (Matteo Garrone)
+- Oceania (Ron Clements, John Musker)
+- Brave - Ribelle (Mark Andrews, Brenda Chapman)
+- Coco (Lee Unkrich, Adrian Molina)
+- La volpe e la bambina (Luc Jacquet)
+`;
+
+        const existingFilmsTable3 = `Film presenti in Tabella 3:
+- Million Dollar Baby (Clint Eastwood)
+- Il postino (Massimo Troisi)
+- Titanic (James Cameron)
+- Il miglio verde (Frank Darabont)
+- Hachiko (Lasse Hallström)
+`;
+
+        const allExistingFilms = existingFilmsTable1 + existingFilmsTable2 + existingFilmsTable3;
+
+        // --- Event Listeners for Text Generation Features ---
+
+        // 1. Suggerisci Film Feature
+        suggestFilmBtn.addEventListener('click', () => {
+            const prompt = `Suggeriscimi un film che esplori i temi della tragedia greca, del mito, della favola, della figura dell'eroe o dell'antagonista, o del concetto di catarsi. Il film non deve essere già presente nelle seguenti liste. Fornisci solo il titolo del film e una breve frase (massimo 20 parole) che ne spieghi il collegamento tematico.`;
+            callGeminiTextAPI(prompt, suggestFilmText, suggestFilmSpinner, allExistingFilms);
+        });
+
+        // 2. Spiegazione Rapida Feature (Now supports TTS)
+        explainTermBtn.addEventListener('click', async () => {
+            const term = termInput.value.trim();
+            ttsControls.classList.add('hidden');
+            ttsAudio.style.display = 'none';
+            listenBtn.disabled = true;
+            listenBtn.textContent = "▶️ Ascolta il Concetto";
+
+            if (term) {
+                const prompt = `Spiegami brevemente il significato di '${term}' nel contesto del cinema e della narrativa, facendo riferimento ai concetti di tragedia greca, mito, favola, eroe, antagonista e catarsi, se pertinenti. Sii conciso e usa un tono neutro e informativo.`;
+                const generatedText = await callGeminiTextAPI(prompt, explainTermText, explainTermSpinner, "");
+                
+                if (generatedText) {
+                    ttsControls.classList.remove('hidden');
+                }
+            } else {
+                explainTermText.textContent = "Per favore, inserisci un termine da spiegare.";
+                explainTermResult.style.display = 'block';
+            }
+        });
+
+        // 2b. TTS Listener
+        listenBtn.addEventListener('click', () => {
+            const text = explainTermText.textContent.trim();
+            if (text) {
+                listenBtn.textContent = "🔄 Generazione audio in corso...";
+                callGeminiTTS(text, ttsAudio, ttsSpinner, listenBtn);
+            }
+        });
+        
+        // 3. Analisi Archetipo Personaggio Feature (New)
+        analyzeCharacterBtn.addEventListener('click', () => {
+            const filmTitle = characterFilmInput.value.trim();
+            const charName = characterNameInput.value.trim();
+            
+            if (filmTitle && charName) {
+                const prompt = `Analizza il personaggio '${charName}' del film '${filmTitle}' in termini di archetipo narrativo (Eroe, Mentore, Messaggero, Shapeshifter, Ombra/Antagonista, ecc. da Vogler/Campbell). Spiega come questo archetipo si colleghi ai temi classici del mito e della tragedia (es. arco di trasformazione, funzione narrativa). Sii conciso.`;
+                callGeminiTextAPI(prompt, analyzeCharacterText, analyzeCharacterSpinner);
+            } else {
+                analyzeCharacterText.textContent = "Per favore, inserisci sia il titolo del film che il nome del personaggio.";
+                analyzeCharacterResult.style.display = 'block';
+            }
+        });
+
+        // 4. Analisi Tematica del Film Feature
+        analyzeFilmBtn.addEventListener('click', () => {
+            const filmTitle = filmAnalysisInput.value.trim();
+            if (filmTitle) {
+                const prompt = `Analizza come il film '${filmTitle}' si collega ai temi della tragedia greca, del mito, della favola, della figura dell'eroe o dell'antagonista, o del concetto di catarsi. Sii conciso ma esaustivo.`;
+                callGeminiTextAPI(prompt, analyzeFilmText, analyzeFilmSpinner);
+            } else {
+                analyzeFilmText.textContent = "Per favore, inserisci il titolo di un film.";
+                analyzeFilmResult.style.display = 'block';
+            }
+        });
+
+        // 5. Genera Domanda di Discussione Feature
+        generateDiscussionQuestionBtn.addEventListener('click', () => {
+            const topic = discussionTopicInput.value.trim();
+            if (topic) {
+                const prompt = `Genera una domanda di discussione stimolante per un cineforum sul tema '${topic}' in relazione al cinema, alla tragedia greca, al mito, alla favola, all'eroe, all'antagonista e alla catarsi. La domanda deve essere aperta e incoraggiare un dibattito approfondito.`;
+                callGeminiTextAPI(prompt, generateDiscussionQuestionText, generateDiscussionQuestionSpinner);
+            } else {
+                generateDiscussionQuestionText.textContent = "Per favore, inserisci un tema per la domanda.";
+                generateDiscussionQuestionResult.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>is workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# Sample workflow for building and deploying a Jekyll site to GitHub Pages
+name: Deploy Jekyll site to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Ruby
+        # https://github.com/ruby/setup-ruby/releases/tag/v1.207.0
+        uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
+        with:
+          ruby-version: '3.1' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          cache-version: 0 # Increment this number if you need to re-download cached gems
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build with Jekyll
+        # Outputs to the './_site' directory by default
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+      - name: Upload artifact
+        # Automatically uploads an artifact from the './_site' directory by default
+        uses: actions/upload-pages-artifact@v3
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
